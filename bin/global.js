@@ -7,15 +7,7 @@ var command = args[0];
 const console = require('better-console')
 
 switch(command){
-    case "use":
-        if(args[1] !== undefined){
-            let address = args[1]
-            ScryptaBVC.use(address)
-        }else{
-            console.log('Please define an address to use as identity')
-        }
-    break;
-
+    
     case "importkey":
         if(args[1] !== undefined && args[2] !== undefined){
             let privatekey = args[1]
