@@ -1,0 +1,21 @@
+{
+    "name": "scrypta-blockchain-versioning-cli",
+    "version": "1.0.0",
+    "description": "Publish and verify code with Scrypta Blockchain",
+    "main": "./lib/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "scrypta-bvc": "./bin/global.js"
+    },
+    "preferGlobal": true,
+    "author": "Scrypta Foundation",
+    "license": "MIT",
+    "dependencies": {
+        "@scrypta/core": "^1.8.1",
+        "better-console": "^1.0.1",
+        "crypto-js": "^4.0.0",
+        "folder-hash": "^3.3.1"
+    }
+}
