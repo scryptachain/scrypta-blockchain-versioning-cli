@@ -39,9 +39,13 @@ switch(command){
     case "upload":
         if(args[1] !== undefined){
             let folder = args[1]
-            ScryptaBVC.uploadfolder(folder)
+            ScryptaBVC.uploadfolder(folder).then(hashed => {
+                console.log(JSON.stringify(hashed))
+            })
         }else{
-            ScryptaBVC.uploadfolder('.')
+            ScryptaBVC.uploadfolder('.').then(hashed => {
+                console.log(JSON.stringify(hashed))
+            })
         }
     break;
 
@@ -68,12 +72,11 @@ switch(command){
             if(args[1] !== undefined){
                 let passphrase = args[1]
                 let ipfs = false
-                console.log(args)
                 if(args[1] === '-ipfs'){
                     ipfs = true
                     passphrase = args[2]
                 }
-                ScryptaBVC.publishfolder('./', passphrase, ipfs)
+                ScryptaBVC.publishfolder('.', passphrase, ipfs)
             }else{
                 console.error('Passphrase not defined, use the command like `scrypta-bvc Passphrase`')
             }
