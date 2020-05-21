@@ -36,19 +36,44 @@ switch(command){
         }
     break;
 
-    case "publish":
-        if(args[1] !== undefined && args[2] !== undefined){
+    case "upload":
+        if(args[1] !== undefined){
             let folder = args[1]
-            if(args[2] !== undefined){
-                let passphrase = args[2]
-                ScryptaBVC.publishfolder(folder, passphrase)
+            ScryptaBVC.uploadfolder(folder)
+        }else{
+            ScryptaBVC.uploadfolder('.')
+        }
+    break;
+
+    case "publish":
+        if(args[1] !== undefined && args[2] !== undefined && args[1] !== '-ipfs'){
+            if(args[1] !== '-ipfs'){
+                let folder = args[1]
+                if(args[2] !== undefined){
+                    let passphrase = args[2]
+                    ScryptaBVC.publishfolder(folder, passphrase)
+                }else{
+                    console.error('Passphrase not defined, use the command like `scrypta-bvc Folder Passphrase`')
+                }
             }else{
-                console.error('Passphrase not defined, use the command like `scrypta-bvc Folder Passphrase`')
+                let folder = args[2]
+                if(args[3] !== undefined){
+                    let passphrase = args[3]
+                    ScryptaBVC.publishfolder(folder, passphrase, true)
+                }else{
+                    console.error('Passphrase not defined, use the command like `scrypta-bvc Folder Passphrase`')
+                }
             }
         }else{
             if(args[1] !== undefined){
                 let passphrase = args[1]
-                ScryptaBVC.publishfolder('./', passphrase)
+                let ipfs = false
+                console.log(args)
+                if(args[1] === '-ipfs'){
+                    ipfs = true
+                    passphrase = args[2]
+                }
+                ScryptaBVC.publishfolder('./', passphrase, ipfs)
             }else{
                 console.error('Passphrase not defined, use the command like `scrypta-bvc Passphrase`')
             }

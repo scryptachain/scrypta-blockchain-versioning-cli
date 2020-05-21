@@ -1,6 +1,6 @@
 {
     "name": "@scrypta/bvc",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "Publish and verify code with Scrypta Blockchain",
     "main": "./lib/index.js",
     "private": false,
@@ -24,8 +24,10 @@
     "license": "MIT",
     "dependencies": {
         "@scrypta/core": "^1.8.1",
+        "axios": "^0.19.2",
         "better-console": "^1.0.1",
         "crypto-js": "^4.0.0",
-        "folder-hash": "^3.3.1"
+        "folder-hash": "^3.3.1",
+        "form-data": "^3.0.0"
     }
 }
