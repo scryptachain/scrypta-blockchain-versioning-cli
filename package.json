@@ -1,6 +1,6 @@
 {
     "name": "@scrypta/bvc",
-    "version": "1.0.7",
+    "version": "1.0.9",
     "description": "Publish and verify code with Scrypta Blockchain",
     "main": "./lib/index.js",
     "private": false,
